@@ -1,1 +1,1 @@
-# strong-Euler-Well-Composed
+# Strong-Euler-Well-Composed
