@@ -1,4 +1,4 @@
-module Nd_euler_dwc where
+module Nd_strongEWC_DWC where
 import Data.List
 
 
