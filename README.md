@@ -5,7 +5,7 @@ This repository contains the implementations of the paper entitled **Strong Eule
 > **Definition** (Strong Euler Well-composedness) An nD cubical complex is Strong Euler well-composed if it has no X-critical cells.
 
 
-In [Nd_strongEWC_DWC.hs](https://github.com/Cimagroup/Strong-Euler-Well-Composed/blob/main/Nd_strongEWC_DWC.hs) all the basic definitions that characterize when a configuration centered on a vertex (we used ```[0.5,...,0.5]``` as central vertex). Some of the main functions are the following:
+In [Nd_strongEWC_DWC.hs](https://github.com/Cimagroup/Strong-Euler-Well-Composed/blob/main/Nd_strongEWC_DWC.hs) all the basic definitions that characterize when a configuration centered on a vertex (we used ```[0.5,...,0.5]``` as central vertex) satisfy any of the conditions of our interests are provided. Some of the main functions are the following:
 
 ```Haskell
 dwc_aux :: Eq a => [[a]] -> Bool
