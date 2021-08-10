@@ -1,6 +1,6 @@
 # Strong-Euler-Well-Composed
 
-This repository contained the implementations of the paper entitled **Strong Euler Well-Composedness** by the authors Nicolas Boutry, Rocio Gonzalez-Diaz, Maria-Jose Jimenez and Eduardo Paluzo-Hidalgo. In that paper, a new definition of well-composedness is provided.
+This repository contains the implementations of the paper entitled **Strong Euler Well-Composedness** by the authors Nicolas Boutry, Rocio Gonzalez-Diaz, Maria-Jose Jimenez and Eduardo Paluzo-Hidalgo. In that paper, a new definition of well-composedness is provided.
 
 > **Definition** (Strong Euler Well-composedness) An nD cubical complex is Strong Euler well-composed if it has no X-critical cells.
 
