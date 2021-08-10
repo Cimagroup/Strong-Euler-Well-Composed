@@ -63,6 +63,13 @@ dwc xss =  and [dwc_aux (star 0 v xss) | v <- cell n xss]
     n = length (head xss)
 
 
+-- Is strong XWC?
+
+xwc xss = and [euler_star v xss == 0 | i<-[1..n], v <- cell i xss, boundary v xss]
+  where
+    n = length (head xss)
+
+-- ------------
 
 hammingDistance :: Eq a => [a] -> [a] -> Int
 hammingDistance = (sum .) . zipWith ((fromEnum .) . (/=))
@@ -129,23 +136,17 @@ hypercubes_list_general n = iteration n [[a] | a <- [0,1,-1]]
 
 -- => X+=>DWC n=2,3
 
-lemma1_imp1 = [and [dwc hs && dwc (dualHcubes 2 hs)| hs <- hss1, f1 hs, f2 hs],and [dwc hs && dwc (dualHcubes 3 hs)| hs <- hss2, f1 hs, f2 hs, f3 hs ]] 
+lemma1_imp1 = [and [dwc hs && dwc (dualHcubes 2 hs)| hs <- hss1, xwc hs],and [dwc hs && dwc (dualHcubes 3 hs)| hs <- hss2, xwc hs ]] 
  where
    hss1 = all_conf [0.5,0.5]
    hss2 = all_conf [0.5,0.5,0.5]
-   f3 hs = and [euler_star c hs==0 | c <- cell 3 hs, boundary c hs  ]
-   f2 hs = and [euler_star c hs==0 | c <- cell 2 hs, boundary c hs  ] -- caras
-   f1 hs = and [euler_star c hs==0 | c <- cell 1 hs, boundary c hs  ] -- cubos
 
 -- <= DWC => X+ n=2,3
 
-lemma1_imp2 =   [and [and [f2 hs, f1 hs]  | hs <- hss1, dwc hs, dwc (dualHcubes 2 hs)], and [and [f3 hs,f2 hs, f1 hs]  | hs <- hss2, dwc hs, dwc (dualHcubes 3 hs)]] 
+lemma1_imp2 =   [and [xwc hs  | hs <- hss1, dwc hs, dwc (dualHcubes 2 hs)], and [xwc hs  | hs <- hss2, dwc hs, dwc (dualHcubes 3 hs)]] 
  where
    hss1 = all_conf [0.5,0.5]
    hss2 = all_conf [0.5,0.5,0.5]
-   f3 hs = and [euler_star c hs==0 | c <- cell 3 hs, boundary c hs  ]
-   f2 hs = and [euler_star c hs==0 | c <- cell 2 hs, boundary c hs  ] 
-   f1 hs = and [euler_star c hs==0 | c <- cell 1 hs, boundary c hs  ] 
 
 -- > [lemma1_imp1, lemma1_imp2]
 -- [[True,True],[True,True]]
