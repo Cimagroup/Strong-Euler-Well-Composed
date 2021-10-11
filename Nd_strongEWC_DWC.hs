@@ -24,19 +24,8 @@ suma_general = concat. map suma
 
 not_adjacent xss = [xs | xs <- xss, (elem 0.5 xs == False)]
 
-cubes_link xss =  nub (concat [not_adjacent (suma xs)| xs <- xss])
-
-cubes_star xss = nub (concat [adjacents (suma xs)| xs <- xss])
-
-euler_link hs =  sum [(length (cell i cl))*(-1)^(i+1) | i <- [0..(n-1)]] -- Remember: just for 4D
-           where
-                cl = cubes_link hs
-                n = length (head hs)
-
-
-
 adjacents xss = [xs | xs <- xss, not (elem 0.5 xs == False)]
--- 
+ 
 adjacent x xs = [y | y <- xs, hammingDistance x y == 1]
 
 
